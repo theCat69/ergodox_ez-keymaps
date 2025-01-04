@@ -21,6 +21,21 @@ If you like to do so you will have to adapt this walkthrough.
 - Compiled hex file can be found in the root folder of you qmk_firmware folder.
 - Flash your keyboard to test your new functionality ! Personally i use keymapp that i downloaded from oryx website but feal free to use anything !
 
+## Want to still use oryx GUI ?
+
+This is the way I manage to handle change I do on oryx GUI and merge it to my current keymap.c.
+
+- Get your latest layout source from oryx website (this should be your current keymap.c minus your custom change you made on keymap.c file).
+- Create a folder for the merge (merge_folder in my examples).
+- Inside this folder keep your keymap.c from oryx souce that you will use as base and rename it to keymap_base.c.
+- Add your current keymap.c from your custom folder: <new_name_for_my_keymap>. Rename it to keymap_init.c.
+- Merge files like so (i use nvim diff tool): `nvim -d keymap_init.c keymap_base.c keymap.c`.
+- Once files are merged. Review your changes then overwritte you keymap.c file (inside your custom folder) with your newly merged file (should be keymap_init.c).
+- Commit changes and test them. Compiling and flashing using the new keymap.c file.
+- Once you are sure your changes are working properly you can overwritte keymap_base.c with your keymap.c from oryx source as it will be your new baseline.
+- Commit again to save your new baseline.
+- You are done !
+
 ## Notes from ZSA : Building your layout from source
 
 Congratulations on taking the next step, and making use of your keyboard's open-source nature! There's so much power to unlock — this is going to be fun. :)
