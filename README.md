@@ -14,11 +14,11 @@ If you like to do so you will have to adapt this walkthrough.
 - Setup QMK on your device (depends on OS) BE CAREFULL TO USE ZSA SETUP FOR THE CORRECT FIRMWARE(on zsa qmk firmware github repo and care for the firmware version because the readme is not always up to date) : [https://docs.qmk.fm/newbs_getting_started](https://docs.qmk.fm/newbs_getting_started).
 - If you followed the installation you should find your firmware at ~/qmk_firmware, your origin should be the zsa/qmk github repo and you should be on the branch corresponding to your firmware version.
 - You should try to build the default keymap for your keyboard. In my case : `make zsa/ergodox_ez/m32u4/glow:default`.
-- If any erros comes up and you not able to build the default keymap fix the errors until you can build it.
+- If any erros comes up and you are not able to build the default keymap fix the errors until you can build it.
 - Create a symlink between your keymap folder inside your project and a the last folder corresponding to your keyboard then keymaps: `ln -s <full_path_to_my_folder> <full_path_to_my_keyboard_in_qmk_firmware>/keymaps`. In my case (i am on windows):  `ln -s C:\dev\c_projects\ergodoxez_zsa_fvd\fvd C:\Users\fef\qmk_firmware\keyboards\zsa\ergodox_ez\m32u4\glow\keymaps\`.
 - Build your keymap. In my case : `make zsa/ergodox_ez/m32u4/glow:<new_name_for_my_keymap>`.
 - You are all setup to modify the keymap.c file from your layout to compile it again using make.
-- Compied hex file can be found in the root folder of you qmk_firmware folder.
+- Compiled hex file can be found in the root folder of you qmk_firmware folder.
 - Flash your keyboard to test your new functionality ! Personally i use keymapp that i downloaded from oryx website but feal free to use anything !
 
 ## Notes from ZSA : Building your layout from source
