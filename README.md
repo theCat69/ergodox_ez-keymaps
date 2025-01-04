@@ -17,6 +17,7 @@ If you like to do so you will have to adapt this walkthrough.
 - If any erros comes up and you are not able to build the default keymap fix the errors until you can build it.
 - Create a symlink between your keymap folder inside your project and a the last folder corresponding to your keyboard then keymaps: `ln -s <full_path_to_my_folder> <full_path_to_my_keyboard_in_qmk_firmware>/keymaps`. In my case (i am on windows):  `ln -s C:\dev\c_projects\ergodoxez_zsa_fvd\fvd C:\Users\fef\qmk_firmware\keyboards\zsa\ergodox_ez\m32u4\glow\keymaps\`.
 - Build your keymap. In my case : `make zsa/ergodox_ez/m32u4/glow:<new_name_for_my_keymap>`.
+- If you wish to continue to use oryx GUI to modify your layout and merge it later into your custom keymaps create a branch name "oryx": `git branch oryx`
 - You are all setup to modify the keymap.c file from your layout to compile it again using make.
 - Compiled hex file can be found in the root folder of you qmk_firmware folder.
 - Flash your keyboard to test your new functionality ! Personally i use keymapp that i downloaded from oryx website but feal free to use anything !
@@ -25,16 +26,12 @@ If you like to do so you will have to adapt this walkthrough.
 
 This is the way I manage to handle change I do on oryx GUI and merge it to my current keymap.c.
 
-- Get your latest layout source from oryx website (this should be your current keymap.c minus your custom change you made on keymap.c file).
-- Create a folder for the merge (merge_folder in my examples).
-- Inside this folder keep your keymap.c from oryx souce that you will use as base and rename it to keymap_base.c.
-- Add your current keymap.c from your custom folder: <new_name_for_my_keymap>. Rename it to keymap_init.c.
-- Merge files like so (i use nvim diff tool): `nvim -d keymap_init.c keymap_base.c keymap.c`.
-- Once files are merged. Review your changes then overwritte you keymap.c file (inside your custom folder) with your newly merged file (should be keymap_init.c).
-- Commit changes and test them. Compiling and flashing using the new keymap.c file.
-- Once you are sure your changes are working properly you can overwritte keymap_base.c with your keymap.c from oryx source as it will be your new baseline.
-- Commit again to save your new baseline.
-- You are done !
+- Get your latest layout source from oryx website. 
+- Switch to the oryx branch `git checkout oryx`
+- Replace all the source files with your knew files (keymap.c, config.h, i18n.h, rules.mk) and commit.
+- Go back to your main branch `git checkout main`
+- Merge oryx change `git merge oryx` and resolve conflict if any then commit.
+- Test it !
 
 ## Notes from ZSA : Building your layout from source
 
