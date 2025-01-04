@@ -18,13 +18,14 @@ enum tap_dance_codes {
   DANCE_7,
   DANCE_8,
   DANCE_9,
+  DANCE_10,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,      FR_1,           FR_2,           FR_3,           FR_4,           FR_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, FR_6,           FR_7,           FR_8,           FR_9,           FR_0,           KC_ESCAPE,
     KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    LT(3,KC_E),     TD(DANCE_2),    TD(DANCE_3),    KC_TRANSPARENT,                                 KC_TRANSPARENT, TD(DANCE_5),    TD(DANCE_6),    LT(2,KC_I),     TD(DANCE_7),    TD(DANCE_8),    KC_TAB,
-    KC_TRANSPARENT, MT(MOD_LALT, FR_Q),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),MT(MOD_LCTL | MOD_LALT, KC_G),                                                                MT(MOD_LCTL | MOD_LALT, KC_H),MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, FR_M),KC_TRANSPARENT,
+    KC_TRANSPARENT, MT(MOD_LALT, FR_Q),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),MT(MOD_LCTL | MOD_LALT, KC_G),                                                                MT(MOD_LCTL | MOD_LALT, KC_H),MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),TD(DANCE_9),    MT(MOD_RALT, FR_M),KC_TRANSPARENT,
     KC_LEFT_SHIFT,  TD(DANCE_4),    KC_X,           KC_C,           KC_V,           KC_B,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_N,           FR_COMM,        FR_SCLN,        FR_COLN,        FR_EXLM,        KC_RIGHT_SHIFT,
     KC_LEFT_CTRL,   KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_RIGHT,                                                                                                       KC_UP,          KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -33,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, FR_AMPR,        FR_EACU,        FR_DQUO,        FR_QUOT,        FR_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        FR_RPRN,
-    KC_TRANSPARENT, FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           TD(DANCE_9),    KC_I,           KC_O,           KC_P,           FR_CIRC,
+    KC_TRANSPARENT, FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           TD(DANCE_10),   KC_I,           KC_O,           KC_P,           FR_CIRC,
     KC_TRANSPARENT, FR_Q,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           FR_M,           FR_UGRV,
     KC_TRANSPARENT, FR_W,           KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_LEFT_CTRL,   KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_ALT,    KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_RIGHT_ALT,   KC_RIGHT_GUI,   KC_TRANSPARENT, KC_RIGHT_CTRL,
@@ -61,6 +62,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
+  [4] = LAYOUT_ergodox_pretty(
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+  ),
 };
 
 
@@ -77,9 +88,11 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [1] = { {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255}, {152,255,255} },
 
-    [2] = { {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204} },
+    [2] = { {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {90,218,204}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {90,218,204}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245} },
 
-    [3] = { {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255} },
+    [3] = { {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {63,255,255}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {63,255,255}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245} },
+
+    [4] = { {0,255,255}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,255,255}, {0,245,245}, {192,127,255}, {0,245,245}, {0,245,245}, {0,255,255}, {192,127,255}, {192,127,255}, {192,127,255}, {0,245,245}, {0,255,255}, {0,245,245}, {0,255,255}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,255,255}, {0,245,245}, {0,245,245}, {192,127,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255} },
 
 };
 
@@ -114,6 +127,9 @@ bool rgb_matrix_indicators_user(void) {
       break;
     case 3:
       set_layer_color(3);
+      break;
+    case 4:
+      set_layer_color(4);
       break;
    default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
@@ -189,7 +205,7 @@ enum {
     MORE_TAPS
 };
 
-static tap dance_state[10];
+static tap dance_state[11];
 
 uint8_t dance_step(tap_dance_state_t *state);
 
@@ -526,6 +542,43 @@ void dance_9_reset(tap_dance_state_t *state, void *user_data);
 
 void on_dance_9(tap_dance_state_t *state, void *user_data) {
     if(state->count == 3) {
+        tap_code16(KC_L);
+        tap_code16(KC_L);
+        tap_code16(KC_L);
+    }
+    if(state->count > 3) {
+        tap_code16(KC_L);
+    }
+}
+
+void dance_9_finished(tap_dance_state_t *state, void *user_data) {
+    dance_state[9].step = dance_step(state);
+    switch (dance_state[9].step) {
+        case SINGLE_TAP: register_code16(KC_L); break;
+        case SINGLE_HOLD: register_code16(KC_RIGHT_GUI); break;
+        case DOUBLE_TAP: register_code16(KC_L); register_code16(KC_L); break;
+        case DOUBLE_HOLD: register_code16(LGUI(KC_L)); break;
+        case DOUBLE_SINGLE_TAP: tap_code16(KC_L); register_code16(KC_L);
+    }
+}
+
+void dance_9_reset(tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[9].step) {
+        case SINGLE_TAP: unregister_code16(KC_L); break;
+        case SINGLE_HOLD: unregister_code16(KC_RIGHT_GUI); break;
+        case DOUBLE_TAP: unregister_code16(KC_L); break;
+        case DOUBLE_HOLD: unregister_code16(LGUI(KC_L)); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(KC_L); break;
+    }
+    dance_state[9].step = 0;
+}
+void on_dance_10(tap_dance_state_t *state, void *user_data);
+void dance_10_finished(tap_dance_state_t *state, void *user_data);
+void dance_10_reset(tap_dance_state_t *state, void *user_data);
+
+void on_dance_10(tap_dance_state_t *state, void *user_data) {
+    if(state->count == 3) {
         tap_code16(KC_U);
         tap_code16(KC_U);
         tap_code16(KC_U);
@@ -535,9 +588,9 @@ void on_dance_9(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void dance_9_finished(tap_dance_state_t *state, void *user_data) {
-    dance_state[9].step = dance_step(state);
-    switch (dance_state[9].step) {
+void dance_10_finished(tap_dance_state_t *state, void *user_data) {
+    dance_state[10].step = dance_step(state);
+    switch (dance_state[10].step) {
         case SINGLE_TAP: register_code16(KC_U); break;
         case SINGLE_HOLD: layer_move(0); break;
         case DOUBLE_TAP: register_code16(KC_U); register_code16(KC_U); break;
@@ -545,14 +598,14 @@ void dance_9_finished(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void dance_9_reset(tap_dance_state_t *state, void *user_data) {
+void dance_10_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
-    switch (dance_state[9].step) {
+    switch (dance_state[10].step) {
         case SINGLE_TAP: unregister_code16(KC_U); break;
         case DOUBLE_TAP: unregister_code16(KC_U); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(KC_U); break;
     }
-    dance_state[9].step = 0;
+    dance_state[10].step = 0;
 }
 
 tap_dance_action_t tap_dance_actions[] = {
@@ -566,4 +619,5 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_7] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_7, dance_7_finished, dance_7_reset),
         [DANCE_8] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_8, dance_8_finished, dance_8_reset),
         [DANCE_9] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_9, dance_9_finished, dance_9_reset),
+        [DANCE_10] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_10, dance_10_finished, dance_10_reset),
 };
